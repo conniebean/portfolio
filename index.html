@@ -163,7 +163,7 @@
                     </ul>
                 </div>
                 <div class="block lg:hidden">
-                    <button @click="mobileMenu = true">
+                    <button @click="mobileMenu = true" aria-label="mobile menu is shown">
                         <i class="bx bx-menu text-4xl text-white"></i>
                     </button>
                 </div>
@@ -180,6 +180,7 @@
                 <button
                         class="absolute top-0 right-0 mt-4 mr-4"
                         @click="mobileMenu = false"
+                        aria-label="mobile menu not shown"
                 >
                     <img src="assets/img/icon-close.svg" class="h-10 w-auto" alt=""/>
                 </button>
