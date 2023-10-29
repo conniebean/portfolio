@@ -467,7 +467,7 @@
                         How to contact me info
                     </p>
                 </div>
-                <form class="mx-auto w-full pt-10 sm:w-3/4">
+                <form class="mx-auto w-full pt-10 sm:w-3/4" onsubmit="submitForm(event)">
                     <div class="flex flex-col md:flex-row">
                         <input
                                 class="mr-3 w-full rounded border-grey-50 px-4 py-3 font-body text-black md:w-1/2 lg:mr-5"
@@ -490,10 +490,9 @@
                             rows="10"
                     ></textarea>
                     <button
-
                             class="mt-6 flex items-center justify-center rounded bg-primary px-8 py-3 font-header text-lg font-bold uppercase text-white hover:bg-grey-20"
                     >
-                        <a href="mailto:conniejeankennedy@gmail.com">Send</a>
+                        Send
                         <i class="bx bx-chevron-right relative -right-2 text-3xl"></i>
                     </button>
                 </form>
@@ -535,6 +534,33 @@
     </div>
 
     <script src="assets/js/main.js"></script>
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            fetch('/form-handler.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `name=${name}&email=${email}&message=${message}`,
+            })
+                .then((response) => {
+                    if (response.ok) {
+                        // Success handling (e.g., show a success message)
+                    } else {
+                        // Error handling (e.g., show an error message)
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+        }
+    </script>
 </div>
 </body>
 </html>
