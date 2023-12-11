@@ -1,0 +1,7 @@
+{
+  "name": "Assignment4",
+  "version": "1.0.0",
+  "dependencies": {
+    "daisyui": "^4.4.19"
+  }
+}
